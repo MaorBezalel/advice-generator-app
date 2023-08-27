@@ -1,0 +1,198 @@
+// ------------------------- FONTS ------------------------- //
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+
+// Font Familes
+$font-family-primary: 'Manrope', sans-serif;
+
+// Font Weights
+$font-weight-primary: 800; // extra bold
+
+// Font Sizes
+$font-size-quote: 1.75rem;
+
+// --------------------------------------------------------- //
+
+
+// ------------------------- COLORS ------------------------- //
+// Reusable
+$color-light-cyan: hsl(193, 38%, 86%);
+$color-neon-green: hsl(150, 100%, 66%);
+$color-neon-green-active: hsl(150, 100%, 46%);
+$color-grayish-blue: hsl(217, 19%, 38%);
+$color-dark-grayish-blue: hsl(217, 19%, 24%);
+$color-dark-blue: hsl(218, 23%, 16%);
+
+// Primary
+$color-primary: $color-light-cyan;
+$color-secondary: $color-neon-green;
+$color-secondary-active: $color-neon-green-active;
+
+// Neutral
+$color-neutral-1: $color-grayish-blue;
+$color-neutral-card-bg: $color-dark-grayish-blue;
+$color-neutral-body-bg: $color-dark-blue;
+// --------------------------------------------------------- //
+
+// ------------------------- MIXINS ------------------------- //
+@mixin flex-center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-column-center() {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+// --------------------------------------------------------- //
+
+// ------------------------- BOILERPLATE ------------------------- //
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    @include flex-column-center();
+
+    background-color: $color-neutral-body-bg;
+
+    font-family: $font-family-primary;
+    font-size: 1rem;
+    line-height: 1.5;
+
+    min-height: 100vh;
+
+    margin: 0;
+    padding: 0;
+}
+// --------------------------------------------------------- //
+
+
+// ------------------------- LAYOUT ------------------------- //
+.advice-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    position: relative;
+
+    background-color: $color-neutral-card-bg;
+    border-radius: 1rem;
+
+    width: 35rem;
+    height: 23em;
+
+    padding: 1rem;
+    margin-top: auto;
+
+    &__title {
+        color: $color-secondary;
+
+        font-size: .83rem;
+
+        letter-spacing: .3rem;
+        word-spacing: normal;
+
+        text-transform: uppercase;
+        text-align: center;
+
+        padding-top: 2rem;
+    }
+
+    &__quote-container {
+        @include flex-column-center();
+        
+        text-align: center;
+
+        width: 100%;
+        height: 11rem;
+
+        padding-right: 2.5rem;
+        padding-left: 2.5rem;
+        padding-top: 1.5rem;
+    }
+
+    &__quote {
+        color: $color-primary;
+        
+        font-size: $font-size-quote;
+        font-weight: $font-weight-primary;
+    }
+
+    &__pattern-divider {
+        padding-top: 2rem;
+    }
+
+    &__button {
+        @include flex-center();
+
+        position: absolute;
+        bottom: -7%;
+
+        background-color: $color-secondary;
+
+        border: none;
+        border-radius: 50%;
+
+        padding: 1.3rem;
+        
+        cursor: pointer;
+        transition: all .2s ease-out;
+
+        &:hover {
+            filter: drop-shadow(0 0 .75rem $color-secondary);
+            transition: all .2s ease-out;
+        }
+
+        &:active {
+            background-color: $color-secondary-active;
+            transition: all .2s ease-out;
+        }
+
+        &:disabled {
+            opacity: .5;
+            cursor: progress;
+        }
+    }
+}
+
+.app-footer {
+    color: $color-primary;
+    font-size: 1rem;
+    margin-top: auto;
+
+    a {
+        color: $color-secondary;
+    }
+}
+// --------------------------------------------------------- //
+
+
+// ------------------------- MEDIA QUERIES ------------------------- //
+// For mobile phones
+@media screen and (max-width: 600px) {
+    .advice-card {
+        width: 350px;
+
+        &__quote-container {
+            padding-right: 1rem;
+            padding-left: 1rem;
+            padding-top: 1.5rem;
+        }
+
+        &__quote {
+            font-size: 1.5rem;
+        }
+    }
+
+    .app-footer {
+        font-size: .75rem;
+    }
+}
+// --------------------------------------------------------------- //
