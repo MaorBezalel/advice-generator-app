@@ -46,9 +46,9 @@ This project, the "Advice Generator App," was developed as part of a Frontend Me
 The following sequence diagram illustrates the interaction between the user, the app, and the Advice Slip API:
 ```mermaid
 sequenceDiagram
-    participant User
-    participant App
-    participant API
+    actor User as User
+    participant App as Advice Generator App
+    participant API as Advice Slip API
 
     User->>App: Clicks the "dice" button
     App->>API: Send request for advice quote
