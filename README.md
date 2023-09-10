@@ -21,7 +21,7 @@ This project, the "Advice Generator App," was developed as part of a Frontend Me
 
 ## Built Using
 
-[![](https://skillicons.dev/icons?i=html,scss,javascript,vscode)](https://skillicons.dev)
+[![](https://skillicons.dev/icons?i=html,scss,javascript)](https://skillicons.dev)
 
 ## Features
 
